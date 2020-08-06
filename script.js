@@ -29,18 +29,22 @@ let businessHours = {
 
 let counter = 1;
 for (const property in businessHours) {
-    let textEntered = "#textEntered" + counter;
+    let textEntered = "#text-entered" + counter;
     $(textEntered).text(businessHours[property]);
     let timeIdentifier = "#time" + counter;
     let currentTime = moment().hour();
     let timeList = $(timeIdentifier).text();
     let timeValue = returnedHour(timeList);
+
     if (timeValue < currentTime) {
         $(textEntered).addClass("before");
-    } else if (timeValue > currentTime) {
-        $(textEntered).addClass("after");
-    } else {
+    } else if (timeValue === currentTime) {
+        $(textEntered).removeClass("before");
         $(textEntered).addClass("now");
+    } else {
+        $(textEntered).removeClass("before");
+        $(textEntered).removeClass("now");
+        $(textEntered).addClass("after");
     }
     counter++;
 }
