@@ -4,7 +4,7 @@ function todaysDate() {
     $("#currentDay").text(todaysDate);
 }
 todaysDate();
-
+// set up ready function to store items entered in schedule
 $(document).ready(function () {
     if (!localStorage.getItem("businessHours")) {
         updateCalendarTasks(businessHours);
@@ -35,7 +35,7 @@ for (const property in businessHours) {
     let currentTime = moment().hour();
     let timeList = $(timeIdentifier).text();
     let timeValue = returnedHour(timeList);
-
+    // determines color of row
     if (timeValue < currentTime) {
         $(textEntered).addClass("before");
     } else if (timeValue === currentTime) {
@@ -48,14 +48,14 @@ for (const property in businessHours) {
     }
     counter++;
 }
-
+// sets perameters for save button
 $("button").click(function () {
     value = $(this).siblings("textarea").val();
     hourList = $(this).siblings("div").text();
 
     saveSchedule(hourList, value);
 });
-
+// Returns value for times entered
 function returnedHour(hourList) {
     switch (hourList) {
         case "8am": return 8;
