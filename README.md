@@ -19,4 +19,6 @@ WHEN I refresh the page
 THEN the saved events persist
 
 
-I have achieved all parameters, EXCEPT for the color-coding currently, and hope to finish that before the end of the night.
+I believe I have achieved all parameters.
+
+
